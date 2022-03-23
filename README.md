@@ -1,2 +1,8 @@
 # SEProject
-Project for Software Engineering Spring 2022
+Project for Software Engineering Spring 2022 - Dr. Aboudja
+
+Chase
+Kyle
+Jusung
+Ben
+Caleb
