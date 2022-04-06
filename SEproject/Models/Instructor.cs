@@ -1,4 +1,4 @@
-﻿namespace SEproject.Models;
+﻿namespace SEproject.Models { 
 
 public class Instructor
 {
@@ -57,4 +57,5 @@ public class Instructor
         this.position = position;
         this.major = major;
     }
+}
 }
