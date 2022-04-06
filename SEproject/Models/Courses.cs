@@ -1,7 +1,7 @@
 ﻿namespace SEproject.Models
 {
 
-    public class Classes
+    public class Courses
     {
         //intialize Variables
 
@@ -51,7 +51,7 @@
         }
 
         //Constructor
-        public Classes(string classID, string className, string instructorID, string instructorFirstName, string instructorLastName, string instructorEmail)
+        public Courses(string classID, string className, string instructorID, string instructorFirstName, string instructorLastName, string instructorEmail)
         {
             this.classID = classID;
             this.className = className;
