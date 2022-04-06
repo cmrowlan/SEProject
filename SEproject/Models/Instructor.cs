@@ -1,4 +1,5 @@
-﻿namespace SEproject.Models { 
+﻿namespace SEproject.Models 
+{ 
 
 public class Instructor
 {
@@ -14,7 +15,7 @@ public class Instructor
     public string GetSetID
     {
         get => instructorID;
-        set => instructorID = value ?? throw new ArgumentNullException(nameof(value));
+        set => instructorID =  value ?? throw new ArgumentNullException(nameof(value));
     }
 
     public string GetSetFirstName
