@@ -1,0 +1,13 @@
+<body>
+    <div class="form">
+        <div class="section-heading">
+            <h2>Login</h2>
+        </div>
+
+        <ng-form name="formLogin">
+            <input type="text" name="username" placeholder="username" [(ngModel)]="logInfo.username"><br><br>
+            <input type="text" name="password" placeholder="password" [(ngModel)]="logInfo.password"><br><br>
+            <button type="submit" (click)="submit()">Login</button>
+        </ng-form>
+    </div>
+</body>
