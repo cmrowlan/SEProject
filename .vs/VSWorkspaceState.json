@@ -2,6 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\SEproject",
+    "\\SEproject\\ClientApp",
+    "\\SEproject\\ClientApp\\src",
+    "\\SEproject\\ClientApp\\src\\app",
     "\\SEproject\\Pages"
   ],
   "SelectedNode": "\\SEproject\\Pages\\Error.cshtml",

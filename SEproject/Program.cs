@@ -1,8 +1,14 @@
+
+using Microsoft.EntityFrameworkCore;
+using SEproject.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+//TODO:: Add services here to connect DB
+builder.Services.AddDbContext<SierraEchoContext>();
 
 var app = builder.Build();
 
