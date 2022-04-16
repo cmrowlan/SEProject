@@ -20,6 +20,7 @@ namespace SEproject.Data
         public virtual DbSet<Instructor> Instructors { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -119,9 +120,9 @@ namespace SEproject.Data
                 entity.HasIndex(e => e.Email, "email_UNIQUE")
                     .IsUnique();
 
-                entity.Property(e => e.Id)
+                entity.Property(e => e.StudentId)
                     .HasMaxLength(6)
-                    .HasColumnName("id");
+                    .HasColumnName("studentID");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(45)

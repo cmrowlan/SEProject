@@ -12,47 +12,47 @@ namespace SEproject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CoursesController : ControllerBase
+    public class InstructorController : ControllerBase
     {
         private readonly SierraEchoContext _context;
 
-        public CoursesController(SierraEchoContext context)
+        public InstructorController(SierraEchoContext context)
         {
             _context = context;
         }
 
-        // GET: api/Courses
+        // GET: api/Instructor
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Course>>> GetCourses()
+        public async Task<ActionResult<IEnumerable<Instructor>>> GetInstructors()
         {
-            return await _context.Courses.ToListAsync();
+            return await _context.Instructors.ToListAsync();
         }
 
-        // GET: api/Courses/5
+        // GET: api/Instructor/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Course>> GetCourse(string id)
+        public async Task<ActionResult<Instructor>> GetInstructor(string id)
         {
-            var course = await _context.Courses.FindAsync(id);
+            var instructor = await _context.Instructors.FindAsync(id);
 
-            if (course == null)
+            if (instructor == null)
             {
                 return NotFound();
             }
 
-            return course;
+            return instructor;
         }
 
-        // PUT: api/Courses/5
+        // PUT: api/Instructor/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCourse(string id, Course course)
+        public async Task<IActionResult> PutInstructor(string id, Instructor instructor)
         {
-            if (id != course.CourseId)
+            if (id != instructor.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(course).State = EntityState.Modified;
+            _context.Entry(instructor).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace SEproject.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CourseExists(id))
+                if (!InstructorExists(id))
                 {
                     return NotFound();
                 }
@@ -73,19 +73,19 @@ namespace SEproject.Controllers
             return NoContent();
         }
 
-        // POST: api/Courses
+        // POST: api/Instructor
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Course>> PostCourse(Course course)
+        public async Task<ActionResult<Instructor>> PostInstructor(Instructor instructor)
         {
-            _context.Courses.Add(course);
+            _context.Instructors.Add(instructor);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (CourseExists(course.CourseId))
+                if (InstructorExists(instructor.Id))
                 {
                     return Conflict();
                 }
@@ -95,28 +95,28 @@ namespace SEproject.Controllers
                 }
             }
 
-            return CreatedAtAction("GetCourse", new { id = course.CourseId }, course);
+            return CreatedAtAction("GetInstructor", new { id = instructor.Id }, instructor);
         }
 
-        // DELETE: api/Courses/5
+        // DELETE: api/Instructor/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCourse(string id)
+        public async Task<IActionResult> DeleteInstructor(string id)
         {
-            var course = await _context.Courses.FindAsync(id);
-            if (course == null)
+            var instructor = await _context.Instructors.FindAsync(id);
+            if (instructor == null)
             {
                 return NotFound();
             }
 
-            _context.Courses.Remove(course);
+            _context.Instructors.Remove(instructor);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CourseExists(string id)
+        private bool InstructorExists(string id)
         {
-            return _context.Courses.Any(e => e.CourseId == id);
+            return _context.Instructors.Any(e => e.Id == id);
         }
     }
 }
