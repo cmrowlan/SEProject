@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CourseService } from '../data/course.service';
 
 @Component({
   selector: 'app-faculty-login',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
 })
 export class FacultyLoginComponent implements OnInit {
 
-  logInfo: any = {};
-  constructor(private rout: Router) { }
+    logInfo: any = {};
+    constructor(private rout: Router, private courseServ: CourseService) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
+
   }
 
   submit() {

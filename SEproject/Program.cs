@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SEproject.Data;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 //TODO:: Add services here to connect DB
 builder.Services.AddDbContext<SierraEchoContext>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                        policy =>
+                        {
+                            policy.AllowAnyOrigin();
+                            policy.AllowAnyMethod();
+                            policy.AllowAnyHeader();
+                        });
+});
 
 var app = builder.Build();
 
@@ -22,6 +34,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseCors();
 
 
 app.MapControllerRoute(
