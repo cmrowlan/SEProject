@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 import { FacultyLoginComponent } from './faculty-login/faculty-login.component';
+import { StudentPageComponent } from './student-page/student-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FacultyLoginComponent } from './faculty-login/faculty-login.component';
     FetchDataComponent,
     LoginComponent,
     FacultyLoginComponent,
+    StudentPageComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +31,7 @@ import { FacultyLoginComponent } from './faculty-login/faculty-login.component';
     RouterModule.forRoot([
       { path: '', component: LoginComponent},
       { path: 'facultyLogin', component: FacultyLoginComponent},
+      { path: 'student', component: StudentPageComponent},
       {path: 'home', component: HomeComponent},
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },

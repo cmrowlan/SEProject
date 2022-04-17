@@ -10,11 +10,17 @@
     <th>Instructor Last</th>
     <th>Instructor Email</th>
   </tr>
-  <tr>
-    
+  <tr *ngFor="let item of courseArray">
+    <td>{{ item.courseID }}</td>
+    <td>{{ item.courseName }}</td>
+    <td>{{ item.instructorID }}</td>
+    <td>{{ item.instructorFirst }}</td>
+    <td>{{ item.instructorLast }}</td>
+    <td>{{ item.instructorEmail }}</td>
   </tr>
 </table>
 </div>
+
 <div>
   <h2>Faculty</h2>
 <table id="faculty">
@@ -26,8 +32,13 @@
     <th>Postion</th>
     <th>Major</th>
   </tr>
-  <tr>
-
+  <tr *ngFor="let item of professorArray">
+    <td> {{ item.id }}</td>
+    <td> {{ item.firstName }}</td>
+    <td> {{ item.lastName }}</td>
+    <td> {{ item.email }}</td>
+    <td> {{ item.position }}</td>
+    <td> {{ item.major }}</td>
   </tr>
 </table>
 </div>
@@ -41,8 +52,12 @@
     <th>Email</th>
     <th>Major</th>
   </tr>
-  <tr>
-
+  <tr *ngFor="let item of studentsArray">
+    <td> {{ item.studentID }}</td>
+    <td> {{ item.firstName }}</td>
+    <td> {{ item.lastName }}</td>
+    <td> {{ item.email }}</td>
+    <td> {{ item.major }}</td>
   </tr>
 </table>
 </div>
