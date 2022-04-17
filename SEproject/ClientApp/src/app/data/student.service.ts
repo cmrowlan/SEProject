@@ -12,18 +12,18 @@ export class StudentService {
     constructor(private httpClient: HttpClient) { }
 
     getStudents() {
-        return this.httpClient.get<Student[]>(`${this.API}Student`)
+        return this.httpClient.get<Student[]>(`${this.API}Students`)
     }
     getStudentByID(id: string) {
-        return this.httpClient.get<Student>(`${this.API}Student/${id}`)
+        return this.httpClient.get<Student>(`${this.API}Students/${id}`)
     }
     postStudent(student: Student) {
-        return this.httpClient.post(`${this.API}Student`, student)
+        return this.httpClient.post(`${this.API}Students`, student)
     }
     updateStudent(id: string, student: Student) {
-        return this.httpClient.put(`${this.API}Student`, student)
+        return this.httpClient.put(`${this.API}Students`, student)
     }
     deleteStudent(id: string) {
-        return this.httpClient.delete(`${this.API}Student/${id}`)
+        return this.httpClient.delete(`${this.API}Students/${id}`)
     }
 }
