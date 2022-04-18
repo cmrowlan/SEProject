@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ul {
-  margin-bottom: 0px;
+  margin-bottom: 25px;
 }
 
 p {
@@ -114,9 +114,50 @@ p {
 }
 
 img {
-  width: 100%;
-  overflow: hidden;
+  //width: 100%;
+  width: 300px;
+  //overflow: hidden;
+  filter: grayscale(100%);
+  transition: filter 0.5s;
 }
+
+img:hover{
+    filter: grayscale(0%);
+}
+
+.title{
+    color: #1e1e1e;
+    text-transform: uppercase;
+    line-height: 40px;
+}
+
+.title-content{
+    display: block;
+    opacity: 0;
+    animation: revealText .5s forwards;
+}
+
+.title-second{
+    animation-delay: .175;
+}
+.title-third{
+    animation-delay:.25s;
+}
+.title-fourth{
+    animation-delay: .325s;
+}
+
+@keyframes revealText{
+    from{
+        transform: translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform: none;
+    }
+}
+
+
 
 /* 
 ---------------------------------------------
@@ -171,6 +212,24 @@ body {
   opacity: 0.9;
 }
 
+.main-button-blue a {
+    font-size: 13px;
+    color: #fff;
+    background-color: #1338BE;
+    padding: 12px 30px;
+    display: inline-block;
+    border-radius: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .3s;
+}
+
+.main-button-blue a:hover {
+    color: #1e1e1e;
+    background-color: white;
+    opacity: 0.9;
+}
+
 .main-button-yellow a {
   font-size: 13px;
   color: #fff;
@@ -183,8 +242,16 @@ body {
   transition: all .3s;
 }
 
+.buttons{
+    display: flex;
+}
+
 .main-button-yellow a:hover {
   opacity: 0.9;
+}
+
+.scroll-to-section{
+    padding-right: 15px;
 }
 
 .section-heading h2 {
@@ -704,7 +771,7 @@ banner
 
 .video-overlay {
     position: absolute;
-    background-color: rgba(31,39,43,0.75);
+    //background-color: rgba(31,39,43,0.75);
     top: 0;
     left: 0;
     bottom: 0;
@@ -723,7 +790,7 @@ banner
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 600;
-  color: #fff;
+  color: #1e1e1e;
   letter-spacing: 1px;
 }
 
@@ -733,7 +800,7 @@ banner
   font-size: 36px;
   text-transform: uppercase;
   font-weight: 800;
-  color: #fff;
+  color: #1e1e1e;
   letter-spacing: 1px;
 }
 
@@ -751,6 +818,12 @@ banner
 
 .main-banner .caption .main-button-red {
   margin-top: 30px;
+}
+
+.caption-right{
+    position: absolute;
+    right: 15%;
+    top: 30%
 }
 
 @media screen and (max-width: 767px) {
