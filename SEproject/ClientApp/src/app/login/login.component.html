@@ -2,13 +2,25 @@
     <div class="form">
         <div class="section-heading">
             <h2>Login</h2>
-        </div>
+            <div>
+                <img class="loginImage" src="https://www.okcu.edu/uploads/administration/communications/brand/primary-logo-vertical.jpg" />
+            </div>
 
+        </div>
         <ng-form name="formLogin">
-            <input type="text" name="username" placeholder="username" [(ngModel)]="logInfo.username"><br><br>
-            <input type="text" name="password" placeholder="password" [(ngModel)]="logInfo.password"><br><br>
-            <button type="submit" (click)="submit()">Login</button>
+            <input class="textField" type="text" name="username" placeholder="username" [(ngModel)]="logInfo.username">
+            <br>
+            <br>
+            <input class="textField" type="text" name="password" placeholder="password" [(ngModel)]="logInfo.password">
+            <br>
+            <br>
         </ng-form>
-        <button id="facultyLogin" (click)="faculty()">facultyLogin</button> 
+
+        <div class="LoginBtns">
+            <button class="btn-hover color-9" type="submit" (click)="submit()">Student Login</button>
+            <br>
+            <br>
+            <button class="btn-hover color-9" id="facultyLogin" (click)="faculty()">Faculty Login</button>
+        </div>
     </div>
 </body>
