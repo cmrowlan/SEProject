@@ -1,4 +1,22 @@
 <app-nav-menu></app-nav-menu>
+
+<body>
+    <div class="form">
+        <div class="section-heading">
+            <h2>Student details</h2>
+        </div>
+
+        <ng-form name="createStudent">
+            <input type="text" name="id" placeholder="ID" [(ngModel)]="studentInfo.studentID" /><br /><br />
+            <input type="text" name="fname" placeholder="first name" [(ngModel)]="studentInfo.firstName" /><br /><br />
+            <input type="text" name="lname" placeholder="last name" [(ngModel)]="studentInfo.lastName" /><br /><br />
+            <input type="text" name="email" placeholder="email" [(ngModel)]="studentInfo.email" /><br /><br />
+            <input type="text" name="major" placeholder="major" [(ngModel)]="studentInfo.major" /><br /><br />
+            <button id="createStudent" (click)="submit()">Create new student</button>
+        </ng-form>
+    </div>
+</body>
+
 <table>
     <tr>
         <th>Course ID</th>
