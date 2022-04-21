@@ -18,12 +18,12 @@ export class CourseService {
         return this.httpClient.get<Course>(`${this.API}Courses/${id}`)
     }
     postCourse(course: Course) {
-        return this.httpClient.post(`${this.API}/Courses`, course)
+        return this.httpClient.post(`${this.API}Courses`, course)
     }
     updateCourse(id: string, course: Course) {
-        return this.httpClient.put(`${this.API}/Courses`, course)
+        return this.httpClient.put(`${this.API}Courses/${id}`, course)
     }
     deleteCourse(id: string) {
-        return this.httpClient.delete(`${this.API}/Courses/${id}`)
+        return this.httpClient.delete(`${this.API}Courses/${id}`)
     }
 }

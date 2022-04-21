@@ -21,7 +21,7 @@ export class StudentService {
         return this.httpClient.post(`${this.API}Students`, student)
     }
     updateStudent(id: string, student: Student) {
-        return this.httpClient.put(`${this.API}Students`, student)
+        return this.httpClient.put(`${this.API}Students/${id}`, student)
     }
     deleteStudent(id: string) {
         return this.httpClient.delete(`${this.API}Students/${id}`)
