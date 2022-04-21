@@ -1,6 +1,6 @@
 <app-nav-menu></app-nav-menu>
 <div>
-  <h2>Enrollment</h2>
+  <h2>Courses</h2>
 <table id="courses">
   <tr>
     <th>Course ID</th>
@@ -11,12 +11,14 @@
     <th>Instructor Email</th>
   </tr>
   <tr *ngFor="let item of courseArray">
-    <td>{{ item.courseID }}</td>
-    <td>{{ item.courseName }}</td>
-    <td>{{ item.instructorID }}</td>
-    <td>{{ item.instructorFirst }}</td>
-    <td>{{ item.instructorLast }}</td>
-    <td>{{ item.instructorEmail }}</td>
+    <td><input type="text" value="{{ item.courseID }}" #id></td>
+    <td><input type="text" value="{{ item.courseName }}" #name></td>
+    <td><input type="text" value="{{ item.instructorID }}" #inId></td>
+    <td><input type="text" value="{{ item.instructorFirst }}" #inFirst></td>
+    <td><input type="text" value="{{ item.instructorLast }}" #inLast></td>
+    <td><input type="text" value="{{ item.instructorEmail }}" #inEmail></td>
+    <td><button id="courseDel" (click)="deleteCourse(item)">Delete</button></td>
+    <td><button id="courseUpd" (click)="updateCourse(item, id.value, name.value, inId.value, inFirst.value, inLast.value, inEmail.value)">Update</button></td>
   </tr>
 </table>
 </div>
@@ -33,12 +35,14 @@
     <th>Major</th>
   </tr>
   <tr *ngFor="let item of professorArray">
-    <td> {{ item.id }}</td>
-    <td> {{ item.firstName }}</td>
-    <td> {{ item.lastName }}</td>
-    <td> {{ item.email }}</td>
-    <td> {{ item.position }}</td>
-    <td> {{ item.major }}</td>
+    <td><input type="text" value="{{ item.id }}" #id></td>
+    <td><input type="text" value="{{ item.firstName }}" #first></td>
+    <td><input type="text" value="{{ item.lastName }}" #last></td>
+    <td><input type="text" value="{{ item.email }}" #email></td>
+    <td><input type="text" value="{{ item.position }}" #position></td>
+    <td><input type="text" value="{{ item.major }}" #major></td>
+    <td><button id="profDel" (click)="deleteProf(item)">Delete</button></td>
+    <td><button id="profUpd" (click)="updateProf(item, id.value, first.value, last.value, email.value, position.value, major.value)">Update</button></td>
   </tr>
 </table>
 </div>
@@ -53,11 +57,13 @@
     <th>Major</th>
   </tr>
   <tr *ngFor="let item of studentsArray">
-    <td> {{ item.studentID }}</td>
-    <td> {{ item.firstName }}</td>
-    <td> {{ item.lastName }}</td>
-    <td> {{ item.email }}</td>
-    <td> {{ item.major }}</td>
+    <td><input type="text" value="{{ item.studentID }}" #id></td>
+    <td><input type="text" value="{{ item.firstName }}" #first></td>
+    <td><input type="text" value="{{ item.lastName }}" #last></td>
+    <td><input type="text" value="{{ item.email }}" #email></td>
+    <td><input type="text" value="{{ item.major }}" #major></td>
+    <td><button id="stuDel" (click)="deleteStu(item)">Delete</button></td>
+    <td><button id="stuUpd" (click)="updateStu(item, id.value, first.value, last.value, email.value, major.value)">Update</button></td>
   </tr>
 </table>
 </div>

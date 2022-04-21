@@ -32,7 +32,7 @@ import { StudentPageComponent } from './student-page/student-page.component';
       { path: '', component: LoginComponent},
       { path: 'facultyLogin', component: FacultyLoginComponent},
       { path: 'student', component: StudentPageComponent},
-      {path: 'home', component: HomeComponent},
+      {path: 'home', component: HomeComponent}, // {path: 'home/:loginId', component: HomeComponent}
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])

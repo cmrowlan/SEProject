@@ -17,7 +17,7 @@ export class FetchDataComponent implements OnInit{
   studentsArray: any[] = [];
   professorArray: any[] = [];
   courseArray: any[] = [];
-
+  // private test: Student = new Student("test");
   constructor (private courseS: CourseService, private instructorS: InstructorService, private studentS: StudentService) {
 
   }
@@ -35,5 +35,38 @@ export class FetchDataComponent implements OnInit{
     })
     console.log("after get students");
   }
+
+  deleteCourse(selectedItem: any): void {
+    this.courseS.deleteCourse(selectedItem.courseID);
+    window.location.reload();
+  }
   
+  updateCourse(selectedCourse: any, courseId: string, courseName: string, courseInsID: string, courseInsF: string, courseInsL: string, courseInsEm: string): void {
+    let updatedCourse = new Course(courseId, courseName, courseInsID, courseInsF, courseInsL, courseInsEm);
+    this.courseS.updateCourse(selectedCourse.courseID, updatedCourse);
+    window.location.reload();
+  }
+
+  deleteProf(selectedItem: any): void {
+    this.instructorS.deleteInstructor(selectedItem.id);
+    window.location.reload();
+  }
+
+  updateProf(selectProf: any, id: string, firstName: string, lastName: string, email: string, position: string, major: string): void {
+    let updatedProf = new Instructor(id, firstName, lastName, email, position, major);
+    this.instructorS.updateInstructor(selectProf.id, updatedProf);
+    window.location.reload();
+  }
+
+  deleteStu(selectedItem: any): void {
+    this.studentS.deleteStudent(selectedItem.studentID);
+    window.location.reload();
+  }
+
+  updateStu(selectedStu: any, id: string, first: string, last: string, email: string, major: string): void {
+    let updatedStu = new Student(id, first, last, email, major);
+    this.studentS.updateStudent(selectedStu.studentID, updatedStu);
+    window.location.reload();
+  }
+
 }
