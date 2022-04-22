@@ -37,13 +37,14 @@ export class FetchDataComponent implements OnInit{
   }
 
   deleteCourse(selectedItem: any): void {
-    this.courseS.deleteCourse(selectedItem.courseID);
+    this.courseS.deleteCourse(selectedItem.courseId);
     window.location.reload();
   }
   
   updateCourse(selectedCourse: any, courseId: string, courseName: string, courseInsID: string, courseInsF: string, courseInsL: string, courseInsEm: string): void {
     let updatedCourse = new Course(courseId, courseName, courseInsID, courseInsF, courseInsL, courseInsEm);
-    this.courseS.updateCourse(selectedCourse.courseID, updatedCourse);
+    let holder: any;
+    this.courseS.updateCourse(selectedCourse.courseId, updatedCourse).subscribe((res: any) => {holder = res;});
     window.location.reload();
   }
 
@@ -59,13 +60,13 @@ export class FetchDataComponent implements OnInit{
   }
 
   deleteStu(selectedItem: any): void {
-    this.studentS.deleteStudent(selectedItem.studentID);
+    this.studentS.deleteStudent(selectedItem.studentId);
     window.location.reload();
   }
 
   updateStu(selectedStu: any, id: string, first: string, last: string, email: string, major: string): void {
     let updatedStu = new Student(id, first, last, email, major);
-    this.studentS.updateStudent(selectedStu.studentID, updatedStu);
+    this.studentS.updateStudent(selectedStu.studentId, updatedStu);
     window.location.reload();
   }
 
