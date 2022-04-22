@@ -18,19 +18,21 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.rout.navigateByUrl('/home');
-
-    // this.stud.getStudentByID(this.logInfo.username).subscribe((res: any) => {
-    //   this.userLogin = res;
-    // })
-    // if (this.userLogin != null) {
-    //   this.rout.navigateByUrl('/home', this.logInfo.username);
-    // } else {
-    //   alert("invalid login");
-    // }
+    // this.checkForUser();
+    this.rout.navigateByUrl('/home/student');
   }
 
   faculty() {
-    this.rout.navigateByUrl('/facultyLogin');
+    this.rout.navigateByUrl('/facultyLogin', );
+  }
+
+  async checkForUser() {
+    this.userLogin = await this.stud.getStudentByID(this.logInfo.username).toPromise();
+    if (this.userLogin != null) {
+      console.log(this.userLogin);
+      this.rout.navigateByUrl('/home/student');
+    } else if (this.userLogin == null) {
+      alert("invalid login");
+    }
   }
 }
