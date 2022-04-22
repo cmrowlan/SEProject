@@ -6,20 +6,37 @@
             <h2>Student details</h2>
         </div>
 
+        <!-- Benjamin Bowen: creating a new student -->
         <ng-form name="createStudent">
             <input type="text" name="id" placeholder="ID" [(ngModel)]="studentInfo.studentID" /><br /><br />
             <input type="text" name="fname" placeholder="first name" [(ngModel)]="studentInfo.firstName" /><br /><br />
             <input type="text" name="lname" placeholder="last name" [(ngModel)]="studentInfo.lastName" /><br /><br />
             <input type="text" name="email" placeholder="email" [(ngModel)]="studentInfo.email" /><br /><br />
             <input type="text" name="major" placeholder="major" [(ngModel)]="studentInfo.major" /><br /><br />
+            <button id="getStudents" (click)="getStudents()">Get all students</button>
             <button id="createStudent" (click)="submit()">Create new student</button>
+            <button id="updateStudent" (click)="update()">Update by ID</button>
+            <button id="deleteStudent" (click)="delete()">Delete by ID (fix)</button>
         </ng-form>
+    </div>
+    <div>
+        <ul> <!-- TODO: make this look prettier and show the IDs -->
+            <li *ngFor="let student of students">
+                {{student.studentID}} &nbsp;&nbsp;&nbsp;&nbsp;
+                {{student.firstName}} &nbsp;&nbsp;&nbsp;&nbsp;
+                {{student.lastName}} &nbsp;&nbsp;&nbsp;&nbsp;
+                {{student.email}} &nbsp;&nbsp;&nbsp;&nbsp;
+                {{student.major}} &nbsp;&nbsp;&nbsp;&nbsp;
+            </li>
+        </ul>
     </div>
 </body>
 
+<!--
 <table>
     <tr>
         <th>Course ID</th>
         <th>Instructor</th>
     </tr>
 </table>
+    -->
