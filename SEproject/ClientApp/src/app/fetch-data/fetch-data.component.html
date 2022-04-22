@@ -11,9 +11,9 @@
     <th>Instructor Email</th>
   </tr>
   <tr *ngFor="let item of courseArray">
-    <td><input type="text" value="{{ item.courseID }}" #id></td>
+    <td><input type="text" value="{{ item.courseId }}" #id></td>
     <td><input type="text" value="{{ item.courseName }}" #name></td>
-    <td><input type="text" value="{{ item.instructorID }}" #inId></td>
+    <td><input type="text" value="{{ item.instructorId }}" #inId></td>
     <td><input type="text" value="{{ item.instructorFirst }}" #inFirst></td>
     <td><input type="text" value="{{ item.instructorLast }}" #inLast></td>
     <td><input type="text" value="{{ item.instructorEmail }}" #inEmail></td>
@@ -57,7 +57,7 @@
     <th>Major</th>
   </tr>
   <tr *ngFor="let item of studentsArray">
-    <td><input type="text" value="{{ item.studentID }}" #id></td>
+    <td><input type="text" value="{{ item.studentId }}" #id></td>
     <td><input type="text" value="{{ item.firstName }}" #first></td>
     <td><input type="text" value="{{ item.lastName }}" #last></td>
     <td><input type="text" value="{{ item.email }}" #email></td>
