@@ -26,4 +26,7 @@ export class StudentService {
     deleteStudent(id: string) {
         return this.httpClient.delete(`${this.API}Students/${id}`)
     }
+    getEnrollment(id: string) {
+        return this.httpClient.get(`${this.API}Enrollment/${id}`)
+    }
 }
