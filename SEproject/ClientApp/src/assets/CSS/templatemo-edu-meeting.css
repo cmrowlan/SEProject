@@ -202,6 +202,14 @@ img:hover{
     animation-delay: .325s;
 }
 
+.last-row{
+    position: absolute;
+    top: 1650px;
+    width: 100%;
+    left:550px;
+
+}
+
 @keyframes revealText{
     from{
         transform: translateY(20px);
@@ -223,7 +231,7 @@ html,
 body {
   background: #fff;
   font-family: 'Poppins', sans-serif;
-  height: 3000px;
+  height: 2000px;
 }
 
 ::selection {
