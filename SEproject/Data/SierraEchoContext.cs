@@ -17,9 +17,9 @@ namespace SEproject.Data
         }
 
         public virtual DbSet<Course> Courses { get; set; } = null!;
+        public virtual DbSet<Enrollment> Enrollments { get; set; } = null!;
         public virtual DbSet<Instructor> Instructors { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -70,6 +70,37 @@ namespace SEproject.Data
                 entity.Property(e => e.InstructorLast)
                     .HasMaxLength(45)
                     .HasColumnName("instructorLast");
+            });
+
+            modelBuilder.Entity<Enrollment>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("enrollment");
+
+                entity.HasIndex(e => e.CourseId, "courseID_idx");
+
+                entity.HasIndex(e => e.StudentId, "studentID_idx");
+
+                entity.Property(e => e.CourseId)
+                    .HasMaxLength(6)
+                    .HasColumnName("courseID");
+
+                entity.Property(e => e.StudentId)
+                    .HasMaxLength(6)
+                    .HasColumnName("studentID");
+
+                entity.HasOne(d => d.Course)
+                    .WithMany()
+                    .HasForeignKey(d => d.CourseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("courseID");
+
+                entity.HasOne(d => d.Student)
+                    .WithMany()
+                    .HasForeignKey(d => d.StudentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("studentID");
             });
 
             modelBuilder.Entity<Instructor>(entity =>
