@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Enrollment } from './models/enrollment';
 import { Student } from './models/student';
 
 @Injectable({
@@ -27,6 +28,6 @@ export class StudentService {
         return this.httpClient.delete(`${this.API}Students/${id}`)
     }
     getEnrollment(id: string) {
-        return this.httpClient.get(`${this.API}Enrollment/${id}`)
+        return this.httpClient.get<Enrollment[]>(`${this.API}Enrollment/${id}`)
     }
 }
