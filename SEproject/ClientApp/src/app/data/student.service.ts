@@ -30,4 +30,7 @@ export class StudentService {
     getEnrollment(id: string) {
         return this.httpClient.get<Enrollment[]>(`${this.API}Enrollment/${id}`)
     }
+    postEnrollment(enroll: Enrollment) {
+        return this.httpClient.post(`${this.API}Enrollment`, enroll)
+    }
 }

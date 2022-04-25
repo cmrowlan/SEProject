@@ -26,5 +26,20 @@ namespace SEproject.Controllers
 
     
         }
+        [HttpPost]
+        public async Task<ActionResult<Enrollment>> PostEnrollment(Enrollment enroll)
+        {
+            Enrollment enrollment = new Enrollment();
+            enrollment.StudentId = enroll.StudentId;
+            enrollment.CourseId = enroll.CourseId;
+            enrollment.Student = null;
+            enrollment.Course = null;
+
+
+            _context.Enrollments.Add(enrollment);
+            _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetEnrollment", new { id = enroll.CourseId }, enroll);
+        }
     }
     }

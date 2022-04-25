@@ -1,0 +1,15 @@
+<body>
+  <app-nav-menu></app-nav-menu>
+  <h2>Add a Course</h2>
+  <form name="addEnrollment" (ngSubmit)="enrollCourse(courseID)">
+    <select name="courseID" id="courseID" [(ngModel)]="courseID">
+      <option *ngFor="let course of allCourses"
+              [value]="course.courseId">
+              {{course.courseId}}
+      </option>
+    </select><br /><br />
+    <input type="submit" value="Enroll"/>
+
+  </form>
+
+</body>

@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { FacultyLoginComponent } from './faculty-login/faculty-login.component';
 import { StudentPageComponent } from './student-page/student-page.component';
 import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.component';
+import { NewEnrollmentComponent } from './new-enrollment/new-enrollment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.co
     LoginComponent,
     FacultyLoginComponent,
     StudentPageComponent,
-    StudentEnrolledComponent
+    StudentEnrolledComponent,
+    NewEnrollmentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +39,8 @@ import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.co
       {path: 'home/:accessLevel/:id', component: HomeComponent},
       { path: 'counter/:accessLevel/:id', component: CounterComponent },
       { path: 'fetch-data/:accessLevel/:id', component: FetchDataComponent },
-      {path: 'studentEnrolled/:accessLevel/:id', component: StudentEnrolledComponent},
+      { path: 'studentEnrolled/:accessLevel/:id', component: StudentEnrolledComponent },
+      { path: 'newEnrollment/:accessLevel/:id', component: NewEnrollmentComponent},
     ])
   ],
   providers: [],
