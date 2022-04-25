@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 import { FacultyLoginComponent } from './faculty-login/faculty-login.component';
 import { StudentPageComponent } from './student-page/student-page.component';
+import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { StudentPageComponent } from './student-page/student-page.component';
     LoginComponent,
     FacultyLoginComponent,
     StudentPageComponent,
+    StudentEnrolledComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,10 +33,11 @@ import { StudentPageComponent } from './student-page/student-page.component';
     RouterModule.forRoot([
       { path: '', component: LoginComponent},
       { path: 'facultyLogin', component: FacultyLoginComponent},
-      { path: 'student', component: StudentPageComponent},
-      {path: 'home/:accessLevel', component: HomeComponent}, // {path: 'home/:loginId', component: HomeComponent}
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'student/:accessLevel/:id', component: StudentPageComponent},
+      {path: 'home/:accessLevel/:id', component: HomeComponent},
+      { path: 'counter/:accessLevel/:id', component: CounterComponent },
+      { path: 'fetch-data/:accessLevel/:id', component: FetchDataComponent },
+      {path: 'studentEnrolled/:accessLevel/:id', component: StudentEnrolledComponent},
     ])
   ],
   providers: [],

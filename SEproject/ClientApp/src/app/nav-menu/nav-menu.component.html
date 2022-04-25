@@ -25,20 +25,20 @@
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            <a class="nav-link text-dark" [routerLink]="['/home']">Home</a>
+            <a class="nav-link text-dark" [routerLink]="['/home', accessLevel, id]">Home</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/student']"
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isFaculty">
+            <a class="nav-link text-dark" [routerLink]="['/student', accessLevel, id]"
               >Students</a
             >
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']"
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isFaculty">
+            <a class="nav-link text-dark" [routerLink]="['/counter', accessLevel, id]"
               >Instructor</a
             >
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isFaculty">
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data', accessLevel, id]"
               >Admin</a
             >
           </li>

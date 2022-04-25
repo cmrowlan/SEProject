@@ -17,15 +17,14 @@ export class FacultyLoginComponent implements OnInit {
   }
 
   submit() {
-    this.rout.navigateByUrl('/home/faculty');
-    // this.checkForUser();
+    this.rout.navigateByUrl('/home/faculty/' + this.logInfo.username);
   }
 
   async checkForUser() {
     this.userLogin = await this.inService.getInstructorByID(this.logInfo.username).toPromise();
     if (this.userLogin != null) {
       console.log(this.userLogin);
-      this.rout.navigateByUrl('/home/faculty');
+      this.rout.navigateByUrl('/home/faculty/' + this.logInfo.username);
     } else if (this.userLogin == null) {
       alert("invalid login");
     }

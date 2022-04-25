@@ -18,8 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    // this.checkForUser();
-    this.rout.navigateByUrl('/home/student');
+    this.checkForUser();
   }
 
   faculty() {
@@ -30,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.userLogin = await this.stud.getStudentByID(this.logInfo.username).toPromise();
     if (this.userLogin != null) {
       console.log(this.userLogin);
-      this.rout.navigateByUrl('/home/student');
+      this.rout.navigateByUrl('/home/student/' + this.logInfo.username);
     } else if (this.userLogin == null) {
       alert("invalid login");
     }
